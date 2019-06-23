@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script type="module" src="main.js"></script>
+  <title>Web Components - Popup</title>
+</head>
+<body>
+  <h1>Web Components</h1>
+  <h2>Popup Tag</h2>
+  <template id="popup-tmpl">
+    <style>
+      #popup {
+        display: none;
+        position: fixed;
+        background-color: rgba(0,0,0,0.3);
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+      }
+      .dialog {
+        background-color: white;
+        width: 80vw;
+        margin: 100px auto 0 auto;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .title { font-weight: bold; }
+    </style>
+    <div id="popup">
+      <div class="dialog">
+        <div class="title">
+          <slot name="title"></slot>
+        </div>
+        <div class="content">
+          <slot name="content"></slot>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <div>
+    <p>ポップアップ - 1</p>
+    <popup-elememt>
+      <span slot="title">タイトル - 1</span>
+      <span slot="content">
+        本文1 本文1 本文1 本文1 本文1 本文1 本文1 本文1 本文1 本文1 本文1 本文1
+      </span>
+    </popup-elememt>
+  </div>
+
+  <div>
+    <p>ポップアップ - 2</p>
+    <popup-elememt>
+      <span slot="title">タイトル - 2</span>
+      <span slot="content">
+        本文2 本文2 本文2 本文2 本文2 本文2 本文2 本文2 本文2 本文2 本文2 本文2
+      </span>
+    </popup-elememt>
+  </div>
+</body>
+</html>
